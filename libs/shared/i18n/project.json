@@ -1,31 +1,31 @@
 {
-  "name": "shared-layout",
+  "name": "shared-i18n",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/shared/layout/src",
+  "sourceRoot": "libs/shared/i18n/src",
   "projectType": "library",
-  "tags": ["type:ui", "scope:shared"],
+  "tags": [],
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/shared/layout/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/shared/i18n/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "build": {
       "executor": "@nrwl/rollup:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/shared/layout",
-        "tsConfig": "libs/shared/layout/tsconfig.lib.json",
-        "project": "libs/shared/layout/package.json",
-        "entryFile": "libs/shared/layout/src/index.ts",
+        "outputPath": "dist/libs/shared/i18n",
+        "tsConfig": "libs/shared/i18n/tsconfig.lib.json",
+        "project": "libs/shared/i18n/package.json",
+        "entryFile": "libs/shared/i18n/src/index.ts",
         "external": ["react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "babel",
         "assets": [
           {
-            "glob": "libs/shared/layout/README.md",
+            "glob": "libs/shared/i18n/README.md",
             "input": ".",
             "output": "."
           }
