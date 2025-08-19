@@ -37,8 +37,24 @@
       },
       "library": {
         "style": "styled-components",
-        "linter": "eslint"
+        "linter": "eslint",
+        "unitTestRunner": "none"
       }
     }
-  }
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
+  "defaultProject": "host",
+  "depConstraints": [
+    {
+      "sourceTag": "type:app",
+      "onlyDependOnLibsWithTags": ["type:ui", "scope:shared"]
+    },
+    {
+      "sourceTag": "type:ui",
+      "onlyDependOnLibsWithTags": ["type:ui", "scope:shared"]
+    }
+  ]
 }
