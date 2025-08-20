@@ -2,8 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import { ThemeContext } from '@process-workflow/shared/theme';
-
+import { useTheme } from '@process-workflow/shared/theme';
 
 const StyledNav = styled.nav`
   background-color: ${({ theme }) => theme.headerBg};
@@ -62,7 +61,7 @@ const LanguageSwitcher = styled.div`
 `;
 
 export function MainLayout({ children }: { children: React.ReactNode }) {
-  const { toggleTheme } = useContext(ThemeContext);
+  const { toggleTheme } = useTheme();
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (lng: string) => {

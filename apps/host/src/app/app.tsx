@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { AppThemeProvider } from '@process-workflow/shared/theme';
 import { store } from '@process-workflow/shared/state';
 import { MainLayout } from '@process-workflow/shared/layout';
+import { LoadingSpinner } from '@process-workflow/shared/ui';
 
 const MfeDashboard = React.lazy(() => import('mfe-dashboard/Module'));
 const MfeTemplates = React.lazy(() => import('mfe-templates/Module'));
@@ -17,7 +18,7 @@ export function App() {
     <Provider store={store}>
       <AppThemeProvider>
         <MainLayout>
-          <React.Suspense fallback={<div>Loading Micro-Frontend...</div>}>
+          <React.Suspense fallback={<LoadingSpinner />}>
             <Routes>
               <Route path="/" element={<NxWelcome title="host" />} />
               <Route path="/mfe-dashboard" element={<MfeDashboard />} />
