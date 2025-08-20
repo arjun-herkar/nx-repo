@@ -16,12 +16,18 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@process-workflow/auth/feature-login": [
+        "libs/auth/feature-login/src/index.ts"
+      ],
+      "@process-workflow/data-access/api": [
+        "libs/data-access/api/src/index.ts"
+      ],
+      "@process-workflow/shared/i18n": ["libs/shared/i18n/src/index.ts"],
       "@process-workflow/shared/layout": ["libs/shared/layout/src/index.ts"],
       "@process-workflow/shared/state": ["libs/shared/state/src/index.ts"],
       "@process-workflow/shared/theme": ["libs/shared/theme/src/index.ts"],
-      "@process-workflow/shared/i18n": ["libs/shared/i18n/src/index.ts"],
       "@process-workflow/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@process-workflow/data-access/api": ["libs/data-access/api/src/index.ts"]
+      "@process-workflow/shared/theme/*": ["libs/shared/theme/src/*"],
     }
   },
   "exclude": ["node_modules", "tmp"]

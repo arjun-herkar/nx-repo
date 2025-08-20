@@ -1,21 +1,19 @@
-export const lightTheme = {
-    body: '#FFF',
-    text: '#363537',
-    headerBg: '#2c3e50',
-    headerColor: '#FFF',
-    toggleBorder: '#FFF',
-    background: '#363537',
-  };
-  
-  export const darkTheme = {
-    body: '#363537',
-    text: '#FAFAFA',
-    headerBg: '#1a1a1a',
-    headerColor: '#FAFAFA',
-    toggleBorder: '#6B8096',
-    background: '#999',
-  };
-  
-  export type Theme = typeof lightTheme;
-  
-  
+import { Theme } from './theme-types';
+
+export const lightTheme: Theme = {
+  body: '#F6F8FA',
+  text: '#24292e',
+  toggleBorder: '#FFF',
+  background: '#FFF',
+  headerBg: '#1a202c',
+  headerColor: '#E2E8F0',
+};
+
+export const darkTheme: Theme = {
+  body: '#1a202c',
+  text: '#E2E8F0',
+  toggleBorder: '#6B8096',
+  background: '#2d3748',
+  headerBg: '#1a202c',
+  headerColor: '#E2E8F0',
+};

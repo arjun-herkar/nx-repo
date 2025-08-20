@@ -1,21 +1,25 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
+import { authReducer } from './auth/auth.slice';
+import { watchAuth } from './auth/auth.saga';
 
-// Placeholder for root reducer
-const rootReducer = (state = {}) => state;
+const rootReducer = combineReducers({
+  auth: authReducer,
+  // ... other reducers
+});
 
-// Placeholder for root saga
 function* rootSaga() {
-  yield all([]);
+  yield all([watchAuth()]);
 }
 
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(sagaMiddleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 });
 
 sagaMiddleware.run(rootSaga);
+
+export type RootState = ReturnType<typeof rootReducer>;

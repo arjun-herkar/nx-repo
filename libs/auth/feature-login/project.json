@@ -1,0 +1,16 @@
+{
+  "name": "auth-feature-login",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/auth/feature-login/src",
+  "projectType": "library",
+  "tags": ["type:feature", "scope:auth"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/auth/feature-login/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}
