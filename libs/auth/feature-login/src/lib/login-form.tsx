@@ -4,61 +4,63 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { loginRequest } from '@process-workflow/shared/state';
 import { RootState } from '@process-workflow/shared/state';
+import { Card, Button } from '@process-workflow/shared/ui';
 
 const LoginScreen = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: ${({ theme }) => theme.body};
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
 `;
 
-const FormContainer = styled.div`
-  background: ${({ theme }) => theme.background};
-  padding: 3rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+const LoginCard = styled(Card)`
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 400px;
   text-align: center;
 `;
 
 const Title = styled.h2`
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-  color: ${({ theme }) => theme.text};
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+`;
+
+const Label = styled.label`
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+  text-align: left;
 `;
 
 const Input = styled.input`
-   width: 100%;
-  padding: 0.85rem 1rem;
-  margin-bottom: 1rem;
- border: 1px solid ${({ theme }) => theme.toggleBorder};
-  border-radius: 6px;
-  background-color: ${({ theme }) => theme.body};
-  color: ${({ theme }) => theme.text};
-  font-size: 1rem;
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+
+  &:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
 `;
 
-const Button = styled.button`
+const SubmitButton = styled(Button)`
   width: 100%;
-  padding: 0.85rem 1rem;
-  background-color: ${({ theme }) => theme.headerBg};
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: background-color 0.2s ease-in-out;
-
-  &:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  &:hover:not(:disabled) {
-    opacity: 0.9;
-  }
+  margin-top: 20px;
 `;
 
 const ErrorMessage = styled.p`
@@ -89,27 +91,31 @@ export function LoginForm() {
 
   return (
     <LoginScreen>
-      <FormContainer>
-        <Title>Login</Title>
+      <LoginCard>
+        <Title>Workflow Manager</Title>
         <form onSubmit={handleSubmit}>
+          <Label htmlFor="email">Email</Label>
           <Input
+            id="email"
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+          <Label htmlFor="password">Password</Label>
           <Input
+            id="password"
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button type="submit" disabled={loading}>
-            {loading ? 'Logging in...' : 'Login'}
-          </Button>
+          <SubmitButton variant="primary" type="submit" disabled={loading}>
+            {loading ? 'Signing In...' : 'Sign In'}
+          </SubmitButton>
           {error && <ErrorMessage>{error}</ErrorMessage>}
         </form>
-      </FormContainer>
+      </LoginCard>
     </LoginScreen>
   );
 }

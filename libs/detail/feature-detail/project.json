@@ -1,0 +1,16 @@
+{
+  "name": "detail-feature-detail",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/detail/feature-detail/src",
+  "projectType": "library",
+  "tags": ["type:feature", "scope:detail"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/detail/feature-detail/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}

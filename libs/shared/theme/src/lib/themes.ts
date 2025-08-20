@@ -1,12 +1,12 @@
 import { Theme } from './theme-types';
 
 export const lightTheme: Theme = {
-  body: '#F6F8FA',
-  text: '#24292e',
-  toggleBorder: '#FFF',
-  background: '#FFF',
-  headerBg: '#1a202c',
-  headerColor: '#E2E8F0',
+  body: '#F8F9FA', // Main content background
+  text: '#333', // Main text color
+  toggleBorder: '#e1e5e9', // Input borders
+  background: 'white', // Card backgrounds
+  headerBg: 'white', // Nav background
+  headerColor: '#666', // Nav link color
 };
 
 export const darkTheme: Theme = {

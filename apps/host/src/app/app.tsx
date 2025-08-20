@@ -8,7 +8,15 @@ import { LoadingSpinner } from '@process-workflow/shared/ui';
 import ProtectedRoute from './protected-route';
 import { HomePage } from './home-page';
 
-const MfeDashboard = React.lazy(() => import('mfe-dashboard/Module'));
+const Dashboard = React.lazy(
+  () => import('@process-workflow/dashboard/feature-dashboard')
+);
+const Designer = React.lazy(
+  () => import('@process-workflow/designer/feature-designer')
+);
+const DetailScreen = React.lazy(
+  () => import('@process-workflow/detail/feature-detail')
+);
 const MfeTemplates = React.lazy(() => import('mfe-templates/Module'));
 const MfeWorkflow = React.lazy(() => import('mfe-workflow/Module'));
 const MfeAdmin = React.lazy(() => import('mfe-admin/Module'));
@@ -26,7 +34,9 @@ export function App() {
             {/* Protected Routes */}
             <Route element={<ProtectedRoute />}>
               <Route path="/" element={<HomePage />} />
-              <Route path="/mfe-dashboard" element={<MfeDashboard />} />
+              <Route path="/mfe-dashboard" element={<Dashboard />} />
+              <Route path="/designer" element={<Designer />} />
+              <Route path="/detail/:processId" element={<DetailScreen />} />
               <Route path="/mfe-templates" element={<MfeTemplates />} />
               <Route path="/mfe-workflow" element={<MfeWorkflow />} />
               <Route path="/mfe-admin" element={<MfeAdmin />} />

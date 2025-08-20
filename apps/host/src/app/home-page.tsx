@@ -15,9 +15,18 @@ const Title = styled.h1`
   font-weight: 500;
 `;
 
+const Subtitle = styled.p`
+  font-size: 1.25rem;
+  color: #666;
+  margin-top: 1rem;
+`;
+
 export const HomePage = () => (
   <WelcomeContainer>
     <Title>Welcome to the Process Workflow Platform</Title>
+    <Subtitle>
+      You are now logged in. Select a module from the navigation to get started.
+    </Subtitle>
   </WelcomeContainer>
 );
 
